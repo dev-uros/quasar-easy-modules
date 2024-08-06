@@ -1,0 +1,20 @@
+{
+  "type": "module",
+  "name": "quasar-easy-modules",
+  "version": "1.0.12",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "qmodule": "index.js"
+  },
+  "scripts": {
+    "qmodule": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+
+  "dependencies": {
+    "@inquirer/prompts": "^5.3.5"
+  }
+}
