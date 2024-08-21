@@ -20,6 +20,7 @@ import {generateServicesContent} from "./stubs/generic/servicesContent.js";
 import {generateUtilsReadme} from "./stubs/generic/utilsReadme.js";
 import {generateUtilsContent} from "./stubs/generic/utilsContent.js";
 import {generateMainModuleRoutesContent} from "./stubs/generic/mainModuleRoutesContent.js";
+import {formatKebabCaseModuleName} from "./stubs/utils/formatKebabCaseModuleName.js";
 
 
 function getBaseModuleBaseDir(){
@@ -84,6 +85,8 @@ if (selectedModuleType === 'standalone') {
     folders.forEach(folder => {
         const folderPath = path.join(moduleBaseDir, folder);
         fs.mkdirSync(path.join(folderPath), {recursive: true});
+        moduleName = formatKebabCaseModuleName(moduleName);
+
         switch (folder) {
             case 'components':
                 fs.writeFileSync(path.join(folderPath, 'README.md'), generateComponentsReadMe(moduleName));
