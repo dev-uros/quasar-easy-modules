@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "quasar-easy-modules",
-  "version": "1.0.15,
+  "version": "1.0.15",
   "description": "",
   "main": "index.js",
   "bin": {
