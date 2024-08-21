@@ -215,6 +215,7 @@ if (selectedModuleType === 'composite') {
         folders.forEach(folder => {
             const folderPath = path.join(subModuleBaseDir, folder);
             fs.mkdirSync(path.join(folderPath), {recursive: true});
+            submodule = formatKebabCaseModuleName(submodule);
             switch (folder) {
                 case 'components':
                     fs.writeFileSync(path.join(folderPath, 'README.md'), generateComponentsReadMe(submodule));
@@ -275,8 +276,10 @@ if (selectedModuleType === 'composite') {
 
     const mainModuleDir = getModuleBaseDir(mainModuleName);
     fs.writeFileSync(path.join(mainModuleDir, 'routes.ts'), generateMainModuleRoutesContent(
-        subModuleList,
-        mainModuleName + 'Routes'
+        subModuleList.map(submodule => {
+            return formatKebabCaseModuleName(submodule)
+        }),
+        formatKebabCaseModuleName(mainModuleName) + 'Routes'
     ));
 
     console.log(subModuleList);
@@ -401,7 +404,9 @@ if(selectedModuleType === 'addSubmoduleToExistingModule'){
     subModuleList.forEach(submodule => {
         const subModuleBaseDir = getSubmoduleBaseDir(mainModuleName, submodule);
 
+        submodule = formatKebabCaseModuleName(submodule);
         folders.forEach(folder => {
+
             const folderPath = path.join(subModuleBaseDir, folder);
             fs.mkdirSync(path.join(folderPath), {recursive: true});
             switch (folder) {
@@ -478,8 +483,10 @@ if(selectedModuleType === 'addSubmoduleToExistingModule'){
 
     const mainModuleDir = getModuleBaseDir(mainModuleName);
     fs.writeFileSync(path.join(mainModuleDir, 'routes.ts'), generateMainModuleRoutesContent(
-        directories,
-        mainModuleName + 'Routes'
+        directories.map(directory => {
+            return formatKebabCaseModuleName(directory)
+        }),
+        formatKebabCaseModuleName(mainModuleName) + 'Routes'
     ));
 
     //copy paste ends
