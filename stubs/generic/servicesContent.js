@@ -1,5 +1,5 @@
 export function generateServicesContent(isNested = false){
-    return`import {HttpMethod, useFetch} from "${isNested ? '../':''}../../shared/composables/fetch";
+    return`import {HttpMethod, useFetch} from "${isNested ? '../':''}../../shared/utils/fetch";
 
 
 export async function getServerHealthCheckApi() {
