@@ -41,9 +41,9 @@ export function generatePagesContent(moduleName, pageName, exampleComponentName,
 
 <script setup lang="ts">
 import {computed} from "vue";
-import PageContainer from "${isNested ? '../':''}../../shared/components/BasePageContainer.vue";
+import PageContainer from "${isNested ? '../':''}../../shared/components/PageContainer.vue";
 import ${exampleComponentName} from "../components/${exampleComponentName}.vue"
-import {${useStore}} from "../../${moduleName}/store";
+import {${useStore}} from "../store";
 import ${useComposable} from "../composables/${composable}"
 
 const ${store} = ${useStore}();
