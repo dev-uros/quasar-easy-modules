@@ -276,9 +276,7 @@ if (selectedModuleType === 'composite') {
 
     const mainModuleDir = getModuleBaseDir(mainModuleName);
     fs.writeFileSync(path.join(mainModuleDir, 'routes.ts'), generateMainModuleRoutesContent(
-        subModuleList.map(submodule => {
-            return formatKebabCaseModuleName(submodule)
-        }),
+        subModuleList,
         formatKebabCaseModuleName(mainModuleName) + 'Routes'
     ));
 
@@ -483,9 +481,7 @@ if(selectedModuleType === 'addSubmoduleToExistingModule'){
 
     const mainModuleDir = getModuleBaseDir(mainModuleName);
     fs.writeFileSync(path.join(mainModuleDir, 'routes.ts'), generateMainModuleRoutesContent(
-        directories.map(directory => {
-            return formatKebabCaseModuleName(directory)
-        }),
+        directories,
         formatKebabCaseModuleName(mainModuleName) + 'Routes'
     ));
 

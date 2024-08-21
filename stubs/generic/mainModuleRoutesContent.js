@@ -1,3 +1,5 @@
+import {formatKebabCaseModuleName} from "../utils/formatKebabCaseModuleName.js";
+
 export function generateMainModuleRoutesContent(submodules, mainModuleRoutes) {
     return`import {RouteRecordRaw} from "vue-router";
 ${generateImports(submodules)}
@@ -12,7 +14,7 @@ ${generateSpreadSubmoduleRoutes(submodules)}
 function generateImports(submodules){
     let importsString = '';
     submodules.forEach(submodule=> {
-        importsString = importsString + `import {${submodule}Routes} from "./${submodule}/routes";\n`
+        importsString = importsString + `import {${formatKebabCaseModuleName(submodule)}Routes} from "./${submodule}/routes";\n`
     })
     return importsString;
 }
@@ -20,7 +22,7 @@ function generateImports(submodules){
 function generateSpreadSubmoduleRoutes(submodules){
     let spreadSubmoduleRoutesString = '';
     submodules.forEach(submodule=> {
-        spreadSubmoduleRoutesString = spreadSubmoduleRoutesString + `...${submodule}Routes,\n`
+        spreadSubmoduleRoutesString = spreadSubmoduleRoutesString + `...${formatKebabCaseModuleName(submodule)}Routes,\n`
     })
     return spreadSubmoduleRoutesString;
 }
