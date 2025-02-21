@@ -1,6 +1,6 @@
 export function generateRoutesContent (moduleName, indexPageName, middlewareName, isNested = false){
     return `
-import {RouteRecordRaw} from "vue-router";
+import type {RouteRecordRaw} from "vue-router";
 
 import auth from "${isNested ? '../':''}../shared/middleware/auth";
     

@@ -1,7 +1,7 @@
 import {formatKebabCaseModuleName} from "../utils/formatKebabCaseModuleName.js";
 
 export function generateMainModuleRoutesContent(submodules, mainModuleRoutes) {
-    return`import {RouteRecordRaw} from "vue-router";
+    return`import type {RouteRecordRaw} from "vue-router";
 ${generateImports(submodules)}
 
 

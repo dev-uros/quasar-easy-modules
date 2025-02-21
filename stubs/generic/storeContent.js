@@ -1,6 +1,6 @@
 export function generateStoreContent(useStoreFunction, storeName, stateTypes, moduleName, serviceName){
     return `import {acceptHMRUpdate, defineStore} from 'pinia';
-import {${stateTypes}} from "./types";
+import type {${stateTypes}} from "./types";
 import {getServerHealthCheckApi} from "./services/${serviceName}";
 import {formatNumberToCurrency} from "./utils/${moduleName}Utils"
 
